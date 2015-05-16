@@ -1,0 +1,6 @@
+# This is run first except when booting in single-user mode.
+::sysinit:/etc/init.d/rcS
+::respawn:/sbin/getty -L ttymxc0 115200 vt100
+::ctrlaltdel:/sbin/reboot
+::shutdown:/bin/umount -a -r
+::restart:/sbin/init
