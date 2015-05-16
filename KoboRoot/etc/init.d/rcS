@@ -178,8 +178,9 @@ if [ ! -d "/root/.ssh" ]; then
 	chmod 600 /root/.ssh
 fi
 
+./dropbearcfg.sh 
+
 # @LF
 # Start inetd to support telnet and ftpd services
 # There is **NO** **PASSWORD** on these services.
 /usr/sbin/inetd /etc/inetd.conf &
-

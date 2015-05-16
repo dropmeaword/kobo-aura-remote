@@ -1,6 +1,6 @@
-## Enable telnet and FTP in Kobo Aura ebook reader
+## Enable telnet/FTP/SSH in Kobo Aura ebook reader
 
-This hack enables telnet and ftp on a new Kobo Aura reader. To install simply execute:
+This hack enables telnet/ftp/ssh on a new Kobo Aura reader. To install simply execute:
 
     ./package
 

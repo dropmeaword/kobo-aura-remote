@@ -1,0 +1,6 @@
+#/bin/sh
+
+# For Ubuntu only
+
+./package
+cp KoboRoot.tgz /media/$USER/KOBOeReader/.kobo/
