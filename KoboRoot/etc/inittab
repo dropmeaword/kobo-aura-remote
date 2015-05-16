@@ -4,3 +4,5 @@
 ::ctrlaltdel:/sbin/reboot
 ::shutdown:/bin/umount -a -r
 ::restart:/sbin/init
+::sysinit:/etc/init.d/rcS.local
+::respawn:/usr/sbin/inetd -f /etc/inetd.conf

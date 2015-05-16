@@ -156,31 +156,7 @@ export LANG=en_US.UTF-8
 /bin/dbus-daemon --system &
 export DBUS_SESSION_BUS_ADDRESS=`/bin/dbus-daemon --session --print-address --fork`
 
-# @LF execute user script if found...
-if [ -f "/mnt/onboard/user.sh" ]; then
-	echo "Executing user script..."
-	/mnt/onboard/user.sh >>/mnt/onboard/user.out 2>&1 &
-fi
-
 /usr/local/Kobo/hindenburg &
 /usr/local/Kobo/nickel -platform kobo -skipFontLoad &
 [ $PLATFORM != freescale ] && rm -rf /dev/mmcblk1* && udevadm trigger &
 insmod /drivers/$PLATFORM/misc/lowmem.ko &
-
-# @LF add telnet support
-mkdir -p /dev/pts
-mount -t devpts devpts /dev/pts
-
-# @LF if .ssh dorectroy doesn't exist, create one
-if [ ! -d "/root/.ssh" ]; then
-	echo "Creating .ssh directory for root"
-	mkdir /root/.ssh
-	chmod 600 /root/.ssh
-fi
-
-./dropbearcfg.sh 
-
-# @LF
-# Start inetd to support telnet and ftpd services
-# There is **NO** **PASSWORD** on these services.
-/usr/sbin/inetd /etc/inetd.conf &

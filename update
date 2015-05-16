@@ -4,3 +4,10 @@
 
 ./package
 cp KoboRoot.tgz /media/$USER/KOBOeReader/.kobo/
+
+if [ -f "/media/$USER/KOBOeReader/.kobo/KoboRoot.tgz" ]; then
+	echo
+	echo "Device ready to be updated with new filesystem. Unplug USB and switch device off and then on..."
+	echo
+fi
+
