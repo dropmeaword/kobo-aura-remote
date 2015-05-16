@@ -1,20 +1,26 @@
 #!/bin/sh
 
-# @LF execute user script if found...
+# execute user script if found...
 if [ -f "/mnt/onboard/user.sh" ]; then
 	echo "Executing user script..."
 	/mnt/onboard/user.sh >>/mnt/onboard/user.out 2>&1 &
 fi
 
-# @LF add telnet support
+# needed for add telnet support
 mkdir -p /dev/pts
 mount -t devpts devpts /dev/pts
 
-# @LF if .ssh dorectroy doesn't exist, create one
+# If .ssh directroy doesn't exist, create one
 if [ ! -d "/root/.ssh" ]; then
 	echo "Creating .ssh directory for root"
 	mkdir /root/.ssh
 	chmod 600 /root/.ssh
+fi
+
+# See if we have any keys to install
+if [ -f "/mnt/onboard/key.pub" ]; then
+	echo "Adding SSH authentication key to list of authorized keys..."
+	cat  /mnt/onboard/key.pub >>/root/.ssh/authorized_keys 2>&1 &
 fi
 
 # make sure SSH server is configured
