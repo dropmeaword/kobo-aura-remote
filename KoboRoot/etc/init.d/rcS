@@ -171,6 +171,14 @@ insmod /drivers/$PLATFORM/misc/lowmem.ko &
 mkdir -p /dev/pts
 mount -t devpts devpts /dev/pts
 
+# @LF if .ssh dorectroy doesn't exist, create one
+if [ ! -d "/root/.ssh" ]; then
+	echo "Creating .ssh directory for root"
+	mkdir /root/.ssh
+	chmod 600 /root/.ssh
+fi
+
+# @LF
 # Start inetd to support telnet and ftpd services
 # There is **NO** **PASSWORD** on these services.
 /usr/sbin/inetd /etc/inetd.conf &
