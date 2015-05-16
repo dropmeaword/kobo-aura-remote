@@ -2,7 +2,7 @@
 
 This hack enables telnet and ftp on a new Kobo Aura reader. To install simply execute:
 
-    `./package`
+    ./package
 
 And place the resulting KoboRoot.tgz file in the Kobo's partition that appears as you plug the reader to your computer. Place it in the directory named `.kobo`. Once there you can unplug the ereader's usb and restart the device.
 
