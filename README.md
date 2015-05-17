@@ -12,6 +12,9 @@ Connect to the internet with your device by accessig the Kbo shop for example. G
 
 The default password after this update will be `kobo!aura`. SSH refuses to let you in as root unless you have a password set.
 
+### Installing new authentication keys
+Copy your public SSH key to the KOBOeReader directory where the device mounts in your system. Name the public key file `key.pub`. Restart the device, the key file will be automatically installed and it will be recognized the next time you log in.
+
 Tested on firmware version 3.15.0 (April 2015)
 
 [Direct links to Kobo official firmware](http://www.mobileread.com/forums/showthread.php?t=185660)
