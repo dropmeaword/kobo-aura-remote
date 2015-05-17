@@ -27,3 +27,6 @@ else
 	echo
 	echo "Device not found, couldn't install key."
 fi
+
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_kobo
