@@ -1,2 +1,3 @@
+#!/bin/sh
 echo "Packaging the personal Kobo hack..."
 tar -cvzf KoboRoot.tgz -C KoboRoot .
